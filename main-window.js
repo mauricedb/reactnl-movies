@@ -14,9 +14,19 @@ export class MainWindow extends Component {
     renderScene(route, navigator) {
         switch (route.name) {
             case 'movies':
-                return <MoviesContainer navigator={navigator}/>;
+                return (
+            <View style={styles.container}>
+                <Header navigator={navigator}/>
+                    <MoviesContainer navigator={navigator}/>
+            </View>
+                );
             case 'movie':
-                return <MovieDetails navigator={navigator} movie={route.movie}/>;
+                return (
+            <View style={styles.container}>
+                <Header navigator={navigator} showBackButton={true}/>
+                    <MovieDetails navigator={navigator} movie={route.movie}/>
+            </View>
+                );
             default:
                 return <Text onPress={() => navigator.pop()}>Hello {route.name}!</Text>;
         }
@@ -24,14 +34,11 @@ export class MainWindow extends Component {
 
     render() {
         return (
-            <View style={styles.container}>
-                <Header/>
                 <Navigator
                     initialRoute={{
                     name: 'movies'
                 }}
                     renderScene={this.renderScene}/>
-            </View>
         );
     }
 }

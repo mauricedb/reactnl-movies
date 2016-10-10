@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
-import {StyleSheet, Text, View, ToolbarAndroid} from 'react-native';
+import {StyleSheet, Text, View} from 'react-native';
+import {ToolbarAndroid} from 'react-native-vector-icons/Ionicons';
 
 const styles = StyleSheet.create({
     toolbar: {
@@ -14,17 +15,24 @@ const styles = StyleSheet.create({
     }
 });
 
-// <ToolbarAndroid title='The movie list' style={styles.toolbar}>
-// </ToolbarAndroid>
-
 export class Header extends Component {
     render() {
+        let navIconName = null;
+        if (this.props.showBackButton) {
+            navIconName = 'md-arrow-back';
+        }
+
         return (
             <View>
-                <Text style={styles.header}>
-                    The movie list
-                </Text>
+                <ToolbarAndroid
+                    title='The movie list'
+                    navIconName={navIconName}
+                    onIconClicked={this.props.navigator.pop}
+                    style={styles.toolbar}>
+                </ToolbarAndroid>
             </View>
         );
+
+        // <Text style={styles.header}>     The movie list </Text>
     }
 }

@@ -25,7 +25,7 @@ export class Header extends Component {
         return (
             <View>
                 <ToolbarAndroid
-                    title='The movie list'
+                    title='ReactNL Movies'
                     navIconName={navIconName}
                     onIconClicked={this.props.navigator.pop}
                     style={styles.toolbar}>
@@ -33,6 +33,6 @@ export class Header extends Component {
             </View>
         );
 
-        // <Text style={styles.header}>     The movie list </Text>
+        // <Text style={styles.header}>ReactNL Movies</Text>
     }
 }

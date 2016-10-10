@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {AppRegistry, StyleSheet, Text, View} from 'react-native';
+import {MoviesContainer} from './movies/movies-container';
 
 export class MainWindow extends Component {
     render() {
@@ -15,6 +16,7 @@ export class MainWindow extends Component {
                     Double tap R on your keyboard to reload,{'\n'}
                     Shake or press menu button for dev menu
                 </Text>
+                <MoviesContainer />
             </View>
         );
     }

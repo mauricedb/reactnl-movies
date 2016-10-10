@@ -5,7 +5,7 @@ import {MoviesContainer} from './movies/movies-container';
 export class MainWindow extends Component {
     render() {
         return (
-            <View style={styles.container}>
+            <View>
                 <Text style={styles.welcome}>
                     Welcome to React Native!
                 </Text>

@@ -6,21 +6,19 @@ export class MoviesContainer extends Component {
         super();
 
         this.state = {
-            movies: [
-                {
-                    id: 1,
-                    title: 'Kill Bill'
-                }, {
-                    id: 2,
-                    title: 'Star Trek'
-                }, {
-                    id: 3,
-                    title: 'Apocalypse Now'
-                }
-            ]
+            movies: []
         };
     }
-    
+
+    componentDidMount() {
+        fetch('http://rawstack.azurewebsites.net/api/movies')
+            .then(response => response.json())
+            .then(movies => this.setState({movies}))
+            .catch((error) => {
+                console.error(error);
+            });
+    }
+
     render() {
         return (<MoviesList movies={this.state.movies}/>);
     }

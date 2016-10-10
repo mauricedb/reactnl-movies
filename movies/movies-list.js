@@ -6,14 +6,29 @@ const dataSource = new ListView.DataSource({
     rowHasChanged: (row1, row2) => row1 !== row2
 });
 
-var styles = StyleSheet.create({container:{
-    flex: 1
-}});
+var styles = StyleSheet.create({
+    container: {
+        flex: 1
+    },
+    subtitle: {
+        width: 300
+    },
+    avatar: {
+        height: 100,
+        width: 60
+    }
+});
 
 export class MoviesList extends Component {
     renderRow(movie) {
         return (
-            <ListItem key={movie.id} title={movie.title}></ListItem>
+            <ListItem
+                key={movie.id}
+                title={movie.title}
+                subtitle={movie.criticsConsensus || ''}
+                subtitleStyle={styles.subtitle}
+                avatar={movie.posters.profile}
+                avatarStyle={styles.avatar}></ListItem>
         );
     }
 
@@ -22,7 +37,10 @@ export class MoviesList extends Component {
 
         return (
             <View style={styles.container}>
-                <ListView dataSource={movies} renderRow={this.renderRow}></ListView>
+                <ListView
+                    dataSource={movies}
+                    renderRow={this.renderRow}
+                    enableEmptySections={true}></ListView>
             </View>
         );
     }

@@ -5,7 +5,7 @@ import {MoviesContainer} from './movies/movies-container';
 export class MainWindow extends Component {
     render() {
         return (
-            <View>
+            <View style={styles.container}>
                 <Text style={styles.welcome}>
                     Welcome to React Native!
                 </Text>
@@ -24,10 +24,7 @@ export class MainWindow extends Component {
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: '#F5FCFF'
+        flex: 1
     },
     welcome: {
         fontSize: 20,

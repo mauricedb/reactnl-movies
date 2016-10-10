@@ -20,6 +20,6 @@ export class MoviesContainer extends Component {
     }
 
     render() {
-        return (<MoviesList movies={this.state.movies}/>);
+        return (<MoviesList movies={this.state.movies} navigator={this.props.navigator}/>);
     }
 }

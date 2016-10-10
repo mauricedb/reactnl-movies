@@ -20,6 +20,24 @@ var styles = StyleSheet.create({
 });
 
 export class MoviesList extends Component {
+    constructor() {
+        super();
+
+        this.renderRow = this
+            .renderRow
+            .bind(this);
+        this.onPress = this
+            .onPress
+            .bind(this);
+    }
+
+    onPress(movie) {
+        this
+            .props
+            .navigator
+            .push({name: 'movie', movie});
+    }
+
     renderRow(movie) {
         return (
             <ListItem
@@ -28,7 +46,8 @@ export class MoviesList extends Component {
                 subtitle={movie.criticsConsensus || ''}
                 subtitleStyle={styles.subtitle}
                 avatar={movie.posters.profile}
-                avatarStyle={styles.avatar}></ListItem>
+                avatarStyle={styles.avatar}
+                onPress={() => this.onPress(movie)}></ListItem>
         );
     }
 

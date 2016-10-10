@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {AppRegistry, StyleSheet, Text, View} from 'react-native';
+import {AppRegistry, StyleSheet, Text, Navigator, View} from 'react-native';
 import {Header} from './header';
 import {MoviesContainer} from './movies/movies-container';
 
@@ -10,13 +10,26 @@ const styles = StyleSheet.create({
 });
 
 export class MainWindow extends Component {
+    renderScene(route, navigator) {
+        switch (route.name) {
+            case 'movies':
+                return <MoviesContainer navigator={navigator}/>;
+                // case 'movie'
+            default:
+                return <Text onPress={() => navigator.pop()}>Hello {route.name}!</Text>;
+        }
+    }
+
     render() {
         return (
             <View style={styles.container}>
-                <Header />
-                <MoviesContainer />
+                <Header/>
+                <Navigator
+                    initialRoute={{
+                    name: 'movies'
+                }}
+                    renderScene={this.renderScene}/>
             </View>
         );
     }
 }
-

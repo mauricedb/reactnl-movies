@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
-import {StyleSheet, View, Text, Image} from 'react-native';
+import {StyleSheet, ScrollView, View, Text, Image} from 'react-native';
 
 const styles = StyleSheet.create({
     container: {
-        padding: 12
+        margin: 12
     },
     titleRow: {
         flex: 1,
@@ -11,10 +11,24 @@ const styles = StyleSheet.create({
     },
     title: {
         flex: 1,
-        fontSize: 20,
+        fontSize: 24,
         fontWeight: 'bold'
     },
     audienceScore: {
+        fontSize: 20
+    },
+    genresRow: {
+        flex: 1,
+        flexDirection: 'row',
+        marginBottom: 100
+    },
+    genres: {
+        flex: 1
+    },
+    genre: {
+        fontSize: 20
+    },
+    year: {
         fontSize: 20
     },
     posterView: {
@@ -25,6 +39,10 @@ const styles = StyleSheet.create({
         width: 180,
         height: 254,
         margin: 12
+    },
+    criticsConsensus:{
+        fontSize: 20,
+        margin: 12        
     }
 });
 
@@ -34,9 +52,10 @@ export class MovieDetails extends Component {
         const poster = {
             uri: movie.posters.detailed
         };
+        const genres = movie.genres.map(g => <Text key={g} style={styles.genre}>{g}</Text>);
 
         return (
-            <View style={styles.container}>
+            <ScrollView style={styles.container}>
                 <View style={styles.titleRow}>
                     <Text onPress={() => navigator.pop()} style={styles.title}>{movie.title}</Text>
                     <Text style={styles.audienceScore}>{movie.ratings.audienceScore}</Text>
@@ -44,12 +63,14 @@ export class MovieDetails extends Component {
                 <View style={styles.posterView}>
                     <Image source={poster} style={styles.poster}/>
                 </View>
-                <View style={styles.titleRow}>
-                    <Text style={styles.title}>Genres</Text>
-                    <Text>{movie.year}</Text>
+                <View>
+                <Text style={styles.criticsConsensus}>{movie.criticsConsensus || ''}</Text>
                 </View>
-                <Text>{movie.criticsConsensus || ''}</Text>
-            </View>
+                <View style={styles.genresRow}>
+                    <View style={styles.genres}>{genres}</View>
+                    <Text style={styles.year}>{movie.year}</Text>
+                </View>
+            </ScrollView>
         );
     }
 }

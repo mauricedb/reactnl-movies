@@ -30,7 +30,5 @@ export class Header extends Component {
                 </View>
             </View>
         );
-
-        //
     }
 }

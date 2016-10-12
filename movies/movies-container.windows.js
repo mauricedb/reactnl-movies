@@ -3,7 +3,7 @@ import {StyleSheet, View, Text, TouchableHighlight} from 'react-native';
 import {SplitViewWindows} from 'react-native-windows';
 import {MoviesList} from './movies-list';
 
-var styles = StyleSheet.create({
+const styles = StyleSheet.create({
     container: {
         flex: 1
     },
@@ -42,7 +42,7 @@ export class MoviesContainer extends Component {
         fetch('http://rawstack.azurewebsites.net/api/movies')
             .then(response => response.json())
             .then(movies => {
-                var genres = Object.keys(movies.reduce((previous, movie) => {
+                const genres = Object.keys(movies.reduce((previous, movie) => {
                     movie
                         .genres
                         .forEach(genre => previous[genre] = 0)
@@ -57,7 +57,7 @@ export class MoviesContainer extends Component {
     }
 
     render() {
-        var paneView = (
+        const paneView = (
             <View style={styles.paneView}>
                 {this
                     .state

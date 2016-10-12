@@ -6,7 +6,7 @@ const dataSource = new ListView.DataSource({
     rowHasChanged: (row1, row2) => row1 !== row2
 });
 
-var styles = StyleSheet.create({
+const styles = StyleSheet.create({
     container: {
         flex: 1
     },
@@ -52,7 +52,7 @@ export class MoviesList extends Component {
     }
 
     render() {
-        var movies = dataSource.cloneWithRows(this.props.movies);
+        const movies = dataSource.cloneWithRows(this.props.movies);
 
         return (
             <View style={styles.container}>

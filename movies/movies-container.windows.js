@@ -1,14 +1,12 @@
 import React, {Component} from 'react';
-import {
-    StyleSheet,
-    View,
-    Text,
-    TouchableHighlight
-} from 'react-native';
+import {StyleSheet, View, Text, TouchableHighlight} from 'react-native';
 import {SplitViewWindows} from 'react-native-windows';
 import {MoviesList} from './movies-list';
 
 var styles = StyleSheet.create({
+    container: {
+        flex: 1
+    },
     paneView: {
         flex: 1,
         backgroundColor: '#eee'
@@ -74,7 +72,7 @@ export class MoviesContainer extends Component {
                 paneWidth={200}
                 panePosition={SplitViewWindows.positions.Right}
                 renderPaneView={() => paneView}>
-                <View>
+                <View style={styles.container}>
                     <TouchableHighlight onPress={this.openPane}>
                         <Text style={styles.genresLabel}>
                             Genres

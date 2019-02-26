@@ -6,11 +6,11 @@
     "start": "node node_modules/react-native/local-cli/cli.js start"
   },
   "dependencies": {
-    "react": "15.3.2",
-    "react-native": "0.34.1",
-    "react-native-elements": "^0.6.1",
-    "react-native-vector-icons": "^2.1.0",
-    "react-native-windows": "^0.34.1"
+    "react": "16.8.3",
+    "react-native": "0.58.5",
+    "react-native-elements": "^1.1.0",
+    "react-native-vector-icons": "^6.3.0",
+    "react-native-windows": "^1.0.0"
   },
   "devDependencies": {
     "rnpm-plugin-windows": "^0.2.0"
